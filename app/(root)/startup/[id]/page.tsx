@@ -5,8 +5,6 @@ import { formatDate } from "@/lib/utils"
 import Link from "next/link"
 import Image from "next/image"
 import markdownit from "markdown-it"
-import { Suspense } from "react"
-import { Skeleton } from "@/components/ui/skeleton"
 import View from "@/components/View"
 import  StartUpCard , { StartUpCardType } from "@/components/StartUpCard";
 
@@ -76,9 +74,7 @@ export default async function Author({ params }: { params: Promise<{ id: string 
                     </div>
                     )}
 
-                <Suspense fallback={ <Skeleton className="view-sekelton"/>}>
                     <View id={id}/>
-                </Suspense>
             </section>
         </>
     )
