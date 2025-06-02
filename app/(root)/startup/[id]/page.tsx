@@ -12,7 +12,7 @@ import  StartUpCard , { StartUpCardType } from "@/components/StartUpCard";
 
 const md = markdownit()
 
-export default async function Author({params} : {params: { id :string } }){
+export default async function Author({ params }: { params: Promise<{ id: string }> }){
 
     const id = (await params).id
     const [ post , {select : editorPosts}] = await Promise.all([

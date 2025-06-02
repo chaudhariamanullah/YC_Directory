@@ -1,6 +1,4 @@
 import { auth } from "@/auth"
-import { notFound } from "next/navigation";
-import Image from "next/image";
 import UserStartups from "@/components/UserStartups";
 import { Suspense } from "react";
 import { Author_By_Id_Query } from "@/sanity/lib/queries";

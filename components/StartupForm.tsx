@@ -10,8 +10,8 @@ import { formSchema } from "@/lib/validation"
 import { z } from "zod"
 import { useToast } from "@/hooks/use-toast";
 import { createPitch } from "@/lib/action"
-
 import { useRouter } from "next/navigation"
+import type { PrevStateType } from "@/lib/type"
 
 
 export default function StartupForm() {
@@ -21,7 +21,7 @@ export default function StartupForm() {
     const { toast } = useToast()
     const  router  = useRouter()
 
-    const handleFormSubmit = async (prevState: any, formData: FormData) => {
+    const handleFormSubmit = async (prevState: PrevStateType, formData: FormData) => {
         try {
             const formValues = {
                 title: formData.get("title") as string,
@@ -69,7 +69,7 @@ export default function StartupForm() {
         }
     }
 
-    const [state, formAction, isPending] = useActionState(handleFormSubmit, {
+    const [, formAction, isPending] = useActionState(handleFormSubmit, {
         error: "",
         status: "INITIAL",
     })
